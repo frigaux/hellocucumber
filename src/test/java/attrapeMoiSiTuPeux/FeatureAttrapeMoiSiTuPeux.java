@@ -13,9 +13,9 @@ public class FeatureAttrapeMoiSiTuPeux {
     private Boolean gagne;
 
     // Si un joueur avance en dehors du plateau, son déplacement est annulé.
-    @Given("un joueur est en bordure : {string}, {string}, {string}")
-    public void un_joueur_est_en_bordure(String x, String y, String orientation) {
-        joueur1 = new Joueur(Integer.valueOf(x), Integer.valueOf(y), Orientation.valueOf(orientation));
+    @Given("un joueur est en bordure : {int}, {int}, {string}")
+    public void un_joueur_est_en_bordure(int x, int y, String orientation) {
+        joueur1 = new Joueur(x, y, Orientation.valueOf(orientation));
     }
 
     @When("il avance en dehors du plateau {string}")
@@ -23,10 +23,10 @@ public class FeatureAttrapeMoiSiTuPeux {
         joueur1.avancer(Integer.valueOf(nombreCases));
     }
 
-    @Then("son déplacement est annulé : {string}, {string}, {string}")
-    public void son_déplacement_est_annulé(String x, String y, String orientation) {
-        assertThat(joueur1.x).isEqualTo(Integer.valueOf(x));
-        assertThat(joueur1.y).isEqualTo(Integer.valueOf(y));
+    @Then("son déplacement est annulé : {int}, {int}, {string}")
+    public void son_déplacement_est_annulé(int x, int y, String orientation) {
+        assertThat(joueur1.x).isEqualTo(x);
+        assertThat(joueur1.y).isEqualTo(y);
         assertThat(joueur1.orientation).isEqualTo(Orientation.valueOf(orientation));
     }
 
@@ -47,33 +47,33 @@ public class FeatureAttrapeMoiSiTuPeux {
     }
 
     // Si un joueur avance, sa nouvelle position est correcte.
-    @Given("un joueur dont la position est {string}, {string} et l'orientation {string}")
-    public void un_joueur_dont_la_position_est_et_l_orientation(String x1, String y1, String orientation) {
-        joueur1 = new Joueur(Integer.valueOf(x1), Integer.valueOf(y1), Orientation.valueOf(orientation));
+    @Given("un joueur dont la position est {int}, {int} et l'orientation {string}")
+    public void un_joueur_dont_la_position_est_et_l_orientation(int x1, int y1, String orientation) {
+        joueur1 = new Joueur(x1, y1, Orientation.valueOf(orientation));
     }
 
-    @When("il avance de {string} cases")
-    public void il_avance_de_cases(String nombreCases) {
-        joueur1.avancer(Integer.valueOf(nombreCases));
+    @When("il avance de {int} cases")
+    public void il_avance_de_cases(int nombreCases) {
+        joueur1.avancer(nombreCases);
     }
 
-    @Then("son orientation est inchangée {string} et sa nouvelle position est : {string} et {string}")
-    public void son_orientation_est_inchangée_et_sa_nouvelle_position_est_et(String orientation, String x2, String y2) {
-        assertThat(joueur1.x).isEqualTo(Integer.valueOf(x2));
-        assertThat(joueur1.y).isEqualTo(Integer.valueOf(y2));
+    @Then("son orientation est inchangée {string} et sa nouvelle position est : {int} et {int}")
+    public void son_orientation_est_inchangée_et_sa_nouvelle_position_est_et(String orientation, int x2, int y2) {
+        assertThat(joueur1.x).isEqualTo(x2);
+        assertThat(joueur1.y).isEqualTo(y2);
         assertThat(joueur1.orientation).isEqualTo(Orientation.valueOf(orientation));
     }
 
     // Le jeu indique si un joueur voit un autre joueur et à combien de cases il se situe.
     // Un joueur ne voit que ce qui se trouve sur la ligne ou la colonne sur laquelle il est orienté.
-    @Given("le premier joueur se situe : {string}, {string}, {string}")
-    public void le_premier_joueur_se_situe(String x1, String y1, String orientation1) {
-        joueur1 = new Joueur(Integer.valueOf(x1), Integer.valueOf(y1), Orientation.valueOf(orientation1));
+    @Given("le premier joueur se situe : {int}, {int}, {string}")
+    public void le_premier_joueur_se_situe(int x1, int y1, String orientation1) {
+        joueur1 = new Joueur(x1, y1, Orientation.valueOf(orientation1));
     }
 
-    @Given("le second joueur se situe : {string}, {string}, {string}")
-    public void le_second_joueur_se_situe(String x2, String y2, String orientation2) {
-        joueur2 = new Joueur(Integer.valueOf(x2), Integer.valueOf(y2), Orientation.valueOf(orientation2));
+    @Given("le second joueur se situe : {int}, {int}, {string}")
+    public void le_second_joueur_se_situe(int x2, int y2, String orientation2) {
+        joueur2 = new Joueur(x2, y2, Orientation.valueOf(orientation2));
     }
 
     @When("le jeu examine si le premier joueur voit le second")
@@ -81,21 +81,21 @@ public class FeatureAttrapeMoiSiTuPeux {
         vision = new Jeu().unJoueurVoitIlUnSecond(joueur1, joueur2);
     }
 
-    @Then("le jeu indique si le premier voit le second et à combien de cases : {string}, {string}")
-    public void le_jeu_indique_si_le_premier_voit_le_second_et_à_combien_de_cases(String champDeVision, String nombreCases) {
+    @Then("le jeu indique si le premier voit le second et à combien de cases : {string}, {int}")
+    public void le_jeu_indique_si_le_premier_voit_le_second_et_à_combien_de_cases(String champDeVision, int nombreCases) {
         assertThat(vision.dansLeChampDeVision()).isEqualTo(Boolean.valueOf(champDeVision));
-        assertThat(vision.nombreCases()).isEqualTo(Integer.valueOf(nombreCases));
+        assertThat(vision.nombreCases()).isEqualTo(nombreCases);
     }
 
     // Le jeu indique si un joueur a gagné.
-    @Given("le premier joueur se situe : {string} et {string}")
-    public void le_premier_joueur_se_situe_et(String x1, String y1) {
-        joueur1 = new Joueur(Integer.valueOf(x1), Integer.valueOf(y1), Orientation.NORD);
+    @Given("le premier joueur se situe : {int} et {int}")
+    public void le_premier_joueur_se_situe_et(int x1, int y1) {
+        joueur1 = new Joueur(x1, y1, Orientation.NORD);
     }
 
-    @Given("le second joueur se situe : {string} et {string}")
-    public void le_second_joueur_se_situe_et(String x2, String y2) {
-        joueur2 = new Joueur(Integer.valueOf(x2), Integer.valueOf(y2), Orientation.NORD);
+    @Given("le second joueur se situe : {int} et {int}")
+    public void le_second_joueur_se_situe_et(int x2, int y2) {
+        joueur2 = new Joueur(x2, y2, Orientation.NORD);
     }
 
     @When("le jeu examine si le premier joueur a gagné")

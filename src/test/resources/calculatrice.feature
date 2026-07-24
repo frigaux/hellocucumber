@@ -3,7 +3,7 @@ Feature: Codage d'une calculatrice qui prend en paramètre une chaine de caract�
   Scenario Outline: une simple chaine de caractères contenant des nombres séparés par une virgule
     Given une chaine de caractères avec zéro ou plusieurs nombres "<chaine>" avec la virgule pour séparateur
     When on fait la somme des nombres à l'intérieure
-    Then le résultat est "<resultat>"
+    Then le résultat est <resultat>
 
   Examples:
     | chaine | resultat |
@@ -15,7 +15,7 @@ Feature: Codage d'une calculatrice qui prend en paramètre une chaine de caract�
   Scenario Outline: autoriser les retours à la ligne comme séparateur
     Given une chaine de caractères avec zéro ou plusieurs nombres "<chaine>" avec la virgule et le retour à la ligne comme séparateur
     When on fait la somme des nombres à l'intérieure
-    Then le résultat est "<resultat>"
+    Then le résultat est <resultat>
 
   Examples:
     | chaine | resultat |
@@ -33,7 +33,7 @@ Feature: Codage d'une calculatrice qui prend en paramètre une chaine de caract�
   Scenario Outline: autoriser un séparateur spécifique
     Given une chaine de caractères "<chaine>" avec un séparateur spécifique défini en début de chaine
     When on fait la somme des nombres à l'intérieure
-    Then le résultat est "<resultat>"
+    Then le résultat est <resultat>
 
   Examples:
     | chaine     | resultat |
@@ -44,7 +44,7 @@ Feature: Codage d'une calculatrice qui prend en paramètre une chaine de caract�
   Scenario Outline: les nombres supérieurs à 1000 sont ignorés
     Given une chaine de caractères "<chaine>" avec un ou plusieurs nombres supérieurs à mille
     When on fait la somme des nombres à l'intérieure
-    Then le résultat est "<resultat>"
+    Then le résultat est <resultat>
 
   Examples:
     | chaine        | resultat |
@@ -64,7 +64,7 @@ Feature: Codage d'une calculatrice qui prend en paramètre une chaine de caract�
   Scenario Outline: le séparateur spécifique peut avoir n'importe quelle longueur
     Given une chaine de caractères "<chaine>" avec un séparateur spécifique de n'importe quelle longueur
     When on fait la somme des nombres à l'intérieure
-    Then le résultat est "<resultat>"
+    Then le résultat est <resultat>
 
   Examples:
     | chaine           | resultat |

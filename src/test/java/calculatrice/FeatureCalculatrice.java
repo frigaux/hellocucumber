@@ -66,9 +66,9 @@ public class FeatureCalculatrice {
     }
 
 
-    @Then("le résultat est {string}")
-    public void le_résultat_est(String resultat) {
-        assertThat(somme).isEqualTo(Integer.valueOf(resultat));
+    @Then("le résultat est {int}")
+    public void le_résultat_est(int resultat) {
+        assertThat(somme).isEqualTo(resultat);
     }
 
     @Then("une exception {string} est levée")
