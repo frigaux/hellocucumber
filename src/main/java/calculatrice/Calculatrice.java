@@ -4,15 +4,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Calculatrice {
-    private static Pattern regexpSeparateurPersonnalise = Pattern.compile("//([^\n]+)\n");
-    private static Pattern regexpNombresValides = Pattern.compile("^(\\d+)([\\n,]{1}(\\d+))*$", Pattern.MULTILINE);
-    private static Pattern regexpNombreNegatif = Pattern.compile("-\\d+", Pattern.MULTILINE);
+    private static final Pattern REGEXP_SEPARATEUR_PERSONNALISE = Pattern.compile("//([^\n]+)\n");
+    private static final Pattern REGEXP_NOMBRES_VALIDES = Pattern.compile("^(\\d+)([\\n,]{1}(\\d+))*$", Pattern.MULTILINE);
+    private static final Pattern REGEXP_NOMBRE_NEGATIF = Pattern.compile("-\\d+", Pattern.MULTILINE);
 
     public int ajouter(String chainesCaracteres) throws ChaineInvalideException {
         if (chainesCaracteres == null || chainesCaracteres.isEmpty()) {
             return 0;
         }
-        Matcher matcher = regexpSeparateurPersonnalise.matcher(chainesCaracteres);
+        Matcher matcher = REGEXP_SEPARATEUR_PERSONNALISE.matcher(chainesCaracteres);
         if (matcher.find()) {
             String separateur = matcher.group(1);
             return ajouterAvecSeparateurPersonnalise(chainesCaracteres.substring(separateur.length() + 3), separateur);
@@ -23,7 +23,7 @@ public class Calculatrice {
 
     private int ajouterAvecSeparateursCommuns(String nombres) {
         detecterNombreNegatif(nombres);
-        if (regexpNombresValides.matcher(nombres).matches()) {
+        if (REGEXP_NOMBRES_VALIDES.matcher(nombres).matches()) {
             String[] nn = nombres.split("\n|,");
             return sommeString(nn);
         } else {
@@ -43,7 +43,7 @@ public class Calculatrice {
     }
 
     private void detecterNombreNegatif(String nombres) {
-        if (regexpNombreNegatif.matcher(nombres).find()) {
+        if (REGEXP_NOMBRE_NEGATIF.matcher(nombres).find()) {
             throw new ChaineInvalideException("les nombres négatifs ne sont pas autorisés");
         }
     }
