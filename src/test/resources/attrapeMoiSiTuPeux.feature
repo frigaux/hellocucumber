@@ -1,5 +1,11 @@
 Feature: Codage du coeur du jeu "Attrape-moi si tu peux"
-  Attrape-moi si tu peux est un jeu à deux joueurs. Les joueurs se déplacent sur une grille de taille 10 sur 10. Les deux joueurs font une action chacun à leur tour. À son tour, un joueur peut faire une des actions suivantes : pivoter à gauche de 90° (tourner à gauche), pivoter à droite de 90° (tourner à droite), avancer d’une ou deux cases
+  Attrape-moi si tu peux est un jeu à deux joueurs.
+  Les joueurs se déplacent sur une grille de taille 10 sur 10.
+  Les deux joueurs font une action chacun à leur tour.
+  À son tour, un joueur peut faire une des actions suivantes :
+  - pivoter à gauche de 90° (tourner à gauche),
+  - pivoter à droite de 90° (tourner à droite),
+  - avancer d’une ou deux cases.
 
   Scenario Outline: Si un joueur avance en dehors du plateau, son déplacement est annulé.
     Given un joueur est en bordure : <x>, <y>, "<orientation>"

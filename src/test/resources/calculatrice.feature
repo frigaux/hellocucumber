@@ -1,4 +1,6 @@
-Feature: Codage d'une calculatrice qui prend en paramètre une chaine de caractères et procède à la somme des nombres qui la compose
+Feature: Calculatrice
+  Codage d'une calculatrice qui prend en paramètre une chaine de caractères
+  et procède à la somme des nombres qui la compose.
 
   Scenario Outline: une simple chaine de caractères contenant des nombres séparés par une virgule
     Given une chaine de caractères avec zéro ou plusieurs nombres "<chaine>" avec la virgule pour séparateur

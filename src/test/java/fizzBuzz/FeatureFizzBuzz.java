@@ -15,13 +15,13 @@ public class FeatureFizzBuzz {
         this.nombre = nombre;
     }
 
-    @When("on applique l'algorithme FizzBuzz")
-    public void on_applique_l_algorithme_fizz_buzz() {
-        resultat = FizzBuzz.of(nombre);
+    @When("on applique les règles du jeu FizzBuzz")
+    public void on_applique_les_règles_du_jeu_fizz_buzz() {
+        resultat = FizzBuzz.appliquer(nombre);
     }
 
-    @Then("le résultat doit être {string}")
-    public void le_résultat_doit_être(String resultat) {
+    @Then("l'élève doit dire {string}")
+    public void l_élève_doit_dire(String resultat) {
         assertThat(this.resultat).isEqualTo(resultat);
     }
 }

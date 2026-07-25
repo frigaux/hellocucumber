@@ -8,7 +8,7 @@ public class FizzBuzz {
     private static final String FIZZ = "Fizz";
     private static final String FIZZ_BUZZ = FIZZ + BUZZ;
 
-    public static String of(int value) {
+    public static String appliquer(int value) {
         if (isFizzBuzz(value)) {
             return FIZZ_BUZZ;
         }

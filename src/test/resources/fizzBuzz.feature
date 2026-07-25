@@ -5,13 +5,13 @@ Feature: Jeu FizzBuzz
   starting from one. The “fun” part is that if the number is divisible by three, you instead say “Fizz”
   and if it is divisible by five you say “Buzz”. So now your maths teacher is pointing at all of your classmates in turn,
   and they happily shout “one!”, “two!”, “Fizz!”, “four!”, “Buzz!”… until he very deliberately points at you,
-  fixing you with a steely gaze… time stands still, your mouth dries up, your palms become sweatier and sweatier
+  fixing you with a steely gaze... time stands still, your mouth dries up, your palms become sweatier and sweatier
   until you finally manage to croak “Fizz!”. Doom is avoided, and the pointing finger moves on.
 
   Scenario Outline: pour un nombre, l'élève doit dire
     Given un nombre <nombre>
-    When on applique l'algorithme FizzBuzz
-    Then le résultat doit être "<resultat>"
+    When on applique les règles du jeu FizzBuzz
+    Then l'élève doit dire "<resultat>"
 
   Examples:
     | nombre | resultat |
