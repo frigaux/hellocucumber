@@ -1,4 +1,5 @@
 Feature: Codage du coeur du jeu "Attrape-moi si tu peux"
+
   Attrape-moi si tu peux est un jeu à deux joueurs.
   Les joueurs se déplacent sur une grille de taille 10 sur 10.
   Les deux joueurs font une action chacun à leur tour.

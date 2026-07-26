@@ -1,4 +1,5 @@
 Feature: Calculatrice
+
   Codage d'une calculatrice qui prend en paramètre une chaine de caractères
   et procède à la somme des nombres qui la compose.
 

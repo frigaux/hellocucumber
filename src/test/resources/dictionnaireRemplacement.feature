@@ -1,4 +1,5 @@
 Feature: Dictionary replacer
+
   Create a method that takes a string and a dictionary,
   and replaces every key in the dictionary pre and suffixed with a dollar sign,
   with the corresponding value from the Dictionary.
