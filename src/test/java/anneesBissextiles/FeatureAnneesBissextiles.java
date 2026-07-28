@@ -1,6 +1,5 @@
 package anneesBissextiles;
 
-import attrapeMoiSiTuPeux.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,7 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class FeatureAnneesBissextiles {
     private int annee;
-    private boolean bissextile;
+    private boolean estBissextile;
 
     @Given("une annee {int}")
     public void une_annee(int annee) {
@@ -18,11 +17,11 @@ public class FeatureAnneesBissextiles {
 
     @When("on examine si c'est une année bissextile")
     public void on_examine_si_c_est_une_année_bissextile() {
-        bissextile = AnneesBissextiles.estBissextile(annee);
+        estBissextile = AnneesBissextiles.estBissextile(annee);
     }
 
     @Then("l'année est bissextile : {string}")
-    public void l_année_est_bissextile(String bissextile) {
-        assertThat(this.bissextile).isEqualTo(Boolean.valueOf(bissextile));
+    public void l_année_est_bissextile(String estBissextile) {
+        assertThat(this.estBissextile).isEqualTo(Boolean.valueOf(estBissextile));
     }
 }

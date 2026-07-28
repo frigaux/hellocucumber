@@ -33,7 +33,7 @@ public class FeatureDictionnaireRemplacement {
     }
 
     @Then("on obtient la chaine de caractère suivante {string}")
-    public void on_obtient_la_chaine_de_caractère_suivante(String resultat) {
-        assertThat(this.resultat).isEqualTo(resultat);
+    public void on_obtient_la_chaine_de_caractère_suivante(String resultatAttendu) {
+        assertThat(this.resultat).isEqualTo(resultatAttendu);
     }
 }

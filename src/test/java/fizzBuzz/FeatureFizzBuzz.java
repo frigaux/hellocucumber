@@ -21,7 +21,7 @@ public class FeatureFizzBuzz {
     }
 
     @Then("l'élève doit dire {string}")
-    public void l_élève_doit_dire(String resultat) {
-        assertThat(this.resultat).isEqualTo(resultat);
+    public void l_élève_doit_dire(String resultatAttendu) {
+        assertThat(this.resultat).isEqualTo(resultatAttendu);
     }
 }
