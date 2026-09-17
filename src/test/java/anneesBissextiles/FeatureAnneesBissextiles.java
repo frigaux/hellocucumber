@@ -10,8 +10,8 @@ public class FeatureAnneesBissextiles {
     private int annee;
     private boolean estBissextile;
 
-    @Given("une annee {int}")
-    public void une_annee(int annee) {
+    @Given("une année {int}")
+    public void une_année(int annee) {
         this.annee = annee;
     }
 
@@ -20,8 +20,8 @@ public class FeatureAnneesBissextiles {
         estBissextile = AnneesBissextiles.estBissextile(annee);
     }
 
-    @Then("l'année est bissextile : {string}")
-    public void l_année_est_bissextile(String estBissextile) {
+    @Then("on obtient le résultat {string}")
+    public void on_obtient_le_résultat(String estBissextile) {
         assertThat(this.estBissextile).isEqualTo(Boolean.valueOf(estBissextile));
     }
 }

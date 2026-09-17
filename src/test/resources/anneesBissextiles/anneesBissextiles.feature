@@ -10,9 +10,9 @@ Feature: Années bissextiles
   Consider adding this rule as a second story as an extension to the exercise.
 
   Scenario Outline: All years divisible by 400 ARE leap years. All years divisible by 4 but not by 100 ARE leap years.
-    Given une annee <annee>
+    Given une année <annee>
     When on examine si c'est une année bissextile
-    Then l'année est bissextile : "<resultat>"
+    Then on obtient le résultat "<resultat>"
 
   Examples:
     | annee | resultat |
