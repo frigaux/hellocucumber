@@ -8,22 +8,22 @@ public class Bowling {
     private static final Pattern MISS = Pattern.compile("^(\\d)-$");
 
     public static int calculerScore(String resultats) {
-        String[] parties = resultats.split(" ");
+        String[] tours = resultats.split(" ");
         int score = 0;
         for (int i = 0; i < 10; i++) {
-            String partie = parties[i];
-            if (partie.equals("X")) {
-                score += 10 + quilles(parties[i + 1]) + quilles(parties[i + 2]);
+            String tour = tours[i];
+            if (estStrike(tour)) {
+                score += 10 + quillesTombees(tours[i + 1]) + quillesTombees(tours[i + 2]);
             }
-            Matcher spare = SPARE.matcher(partie);
+            Matcher spare = SPARE.matcher(tour);
             if (spare.find()) {
                 if (spare.group(2) == null) {
-                    score += 10 + quilles(parties[i + 1]);
+                    score += 10 + quillesTombees(tours[i + 1]);
                 } else {
                     score += 10 + Integer.parseInt(spare.group(2));
                 }
             }
-            Matcher miss = MISS.matcher(partie);
+            Matcher miss = MISS.matcher(tour);
             if (miss.find()) {
                 score += Integer.parseInt(miss.group(1));
             }
@@ -31,18 +31,22 @@ public class Bowling {
         return score;
     }
 
-    private static int quilles(String partie) {
-        if (partie.equals("X")) {
+    private static boolean estStrike(String tour) {
+        return tour.equals("X");
+    }
+
+    private static int quillesTombees(String tour) {
+        if (tour.equals("X")) {
             return 10;
         }
-        Matcher spare = SPARE.matcher(partie);
+        Matcher spare = SPARE.matcher(tour);
         if (spare.find()) {
             return Integer.parseInt(spare.group(1));
         }
-        Matcher miss = MISS.matcher(partie);
+        Matcher miss = MISS.matcher(tour);
         if (miss.find()) {
             return Integer.parseInt(miss.group(1));
         }
-        return 0;
+        throw new IllegalArgumentException(tour);
     }
 }
