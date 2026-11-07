@@ -8,8 +8,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectPackages("palindrome")
+@SelectPackages("nombresRomains")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "palindrome")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "nombresRomains")
 public class RunCucumberTest {
 }

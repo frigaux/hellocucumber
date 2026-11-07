@@ -17,7 +17,7 @@ public class FeatureNombresRomains {
 
     @When("on applique la numérotation Romaine")
     public void on_applique_la_numérotation_romaine() {
-        this.resultat = NombresRomains.convertirLatinVersRomain(nombre);
+        this.resultat = NombresRomains.convertirLatinVersRomain2(nombre);
     }
 
     @Then("on obtient le nombre Romain {string}")

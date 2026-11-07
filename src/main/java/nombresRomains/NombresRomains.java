@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 
 public class NombresRomains {
     private static LinkedHashMap<Integer, Character> tableConversion = new LinkedHashMap();
+    private static LinkedHashMap<Integer, String> tableConversion2 = new LinkedHashMap();
 
     static {
         tableConversion.put(1000, 'M');
@@ -13,6 +14,20 @@ public class NombresRomains {
         tableConversion.put(10, 'X');
         tableConversion.put(5, 'V');
         tableConversion.put(1, 'I');
+
+        tableConversion2.put(1000, "M");
+        tableConversion2.put(900, "CM");
+        tableConversion2.put(500, "D");
+        tableConversion2.put(400, "CD");
+        tableConversion2.put(100, "C");
+        tableConversion2.put(90, "XC");
+        tableConversion2.put(50, "L");
+        tableConversion2.put(40, "XL");
+        tableConversion2.put(10, "X");
+        tableConversion2.put(9, "IX");
+        tableConversion2.put(5, "V");
+        tableConversion2.put(4, "IV");
+        tableConversion2.put(1, "I");
     }
 
     public static String convertirLatinVersRomain(int nombreAConvertir) {
@@ -42,5 +57,20 @@ public class NombresRomains {
             }
         }
         return resultat.toString();
+    }
+
+    public static String convertirLatinVersRomain2(int nombreAConvertir) {
+        StringBuilder sb = new StringBuilder();
+        var nombres = tableConversion2.keySet();
+        while (nombreAConvertir != 0) {
+            for (int nombre : nombres) {
+                if (nombreAConvertir >= nombre) {
+                    nombreAConvertir -= nombre;
+                    sb.append(tableConversion2.get(nombre));
+                    break;
+                }
+            }
+        }
+        return sb.toString();
     }
 }
